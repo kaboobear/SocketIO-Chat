@@ -2,7 +2,7 @@
     <img src="https://img.icons8.com/bubbles/100/000000/rocket.png" width="100" height="100">
 </p>
 
-<h1 align="center">Passport.js (Local and JWT strategies)</h1>
+<h1 align="center">Socket.io real-time chat</h1>
 
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
@@ -23,7 +23,11 @@
 
 <hr>
 
-![Layout](kaboo.png)
+![Layout](kaboo1.png)
+
+<br>
+
+![Layout](kaboo2.png)
 
 <br>
 
@@ -52,9 +56,9 @@
 
 
 
-[forks-shield]: https://img.shields.io/github/forks/kaboobear/Passport-Local-JWT?style=flat-square
-[forks-url]: https://github.com/kaboobear/Passport-Local-JWT/network/members
-[issues-shield]: https://img.shields.io/github/issues/kaboobear/Passport-Local-JWT.svg?style=flat-square
-[issues-url]: https://github.com/kaboobear/Passport-Local-JWT/issues
-[license-shield]: https://img.shields.io/github/license/kaboobear/Passport-Local-JWT.svg?style=flat-square
-[license-url]: https://github.com/kaboobear/Passport-Local-JWT/blob/master/LICENSE.txt
+[forks-shield]: https://img.shields.io/github/forks/kaboobear/SocketIO-Chat?style=flat-square
+[forks-url]: https://github.com/kaboobear/SocketIO-Chat/network/members
+[issues-shield]: https://img.shields.io/github/issues/kaboobear/SocketIO-Chat.svg?style=flat-square
+[issues-url]: https://github.com/kaboobear/SocketIO-Chat/issues
+[license-shield]: https://img.shields.io/github/license/kaboobear/SocketIO-Chat.svg?style=flat-square
+[license-url]: https://github.com/kaboobear/SocketIO-Chat/blob/master/LICENSE.txt

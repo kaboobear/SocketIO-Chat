@@ -12,7 +12,7 @@ import {getUsers, changeUser} from '../actions/authActions'
 
 class ChatPage extends Component {
     state = {
-        socket: io("https://kaboo-chat-test.herokuapp.com")
+        socket: io("http://localhost:5000")
     }
 
     componentDidMount() {
