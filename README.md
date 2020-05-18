@@ -19,7 +19,9 @@
 + "npm run dev" to run front-end and back-end(on port 3000 and 5000)
 + "npm install" to install necessary modules
 
+<hr>
 
+### Project demo [Here](hhttps://kaboo-chat-test.herokuapp.com)
 
 <hr>
 
