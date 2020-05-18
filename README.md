@@ -21,7 +21,7 @@
 
 <hr>
 
-### Project demo [Here](hhttps://kaboo-chat-test.herokuapp.com)
+### Project demo [Here](https://kaboo-chat-test.herokuapp.com)
 
 <hr>
 
