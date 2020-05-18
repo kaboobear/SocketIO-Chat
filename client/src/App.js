@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Header from './components/header'
 import Main from './components/main'
+import ChatPage from './components/chatPage'
 import Admin from './components/admin'
 import Login from './components/login'
 import Register from './components/register'
@@ -24,20 +24,15 @@ class App extends React.Component {
             <Provider store={store}>
                 <Router>
                     <div className="wrapper">
-                        <Header/>
-
                         <div className="content-section">
-                            <div className="container">
-                                {/* <Route path='/' exact component={Main}/>
+                            {/* <Route path='/' exact component={Main}/>
                                 <Route path='/admin' exact component={Admin}/>
                                 <Route path='/login' exact component={Login}/>
                                 <Route path='/register' exact component={Register}/> */}
-                                <PrivateRoute path="/" isAdmin={[0,1]} component={Main}/>
-                                <PrivateRoute path="/admin" isAdmin={[1]} component={Admin}/>
-                                <UnprivateRoute path="/login" component={Login}/>
-                                <UnprivateRoute path="/register" component={Register}/>
-
-                            </div>
+                            <PrivateRoute path="/" isAdmin={[0, 1]} component={ChatPage}/>
+                            <PrivateRoute path="/admin" isAdmin={[1]} component={Admin}/>
+                            <UnprivateRoute path="/login" component={Login}/>
+                            <UnprivateRoute path="/register" component={Register}/>
                         </div>
                     </div>
                 </Router>

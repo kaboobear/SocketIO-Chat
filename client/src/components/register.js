@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {register} from '../actions/authActions'
 import {clearErrors} from '../actions/errorActions'
 import {connect} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 class Register extends React.Component {
     state = {
@@ -63,9 +64,17 @@ class Register extends React.Component {
         return (
             <div className="register-section">
 
-                <h2 className="log-title">Register</h2>
-
                 <div className="flex-wrap center">
+                <div className="login-wrap">
+                        <div className="login-buttons">
+                            <div className="login-button-wrap">
+                                <NavLink className="login-button" to="/login">Login</NavLink>
+                            </div>
+
+                            <div className="login-button-wrap">
+                                <NavLink className="login-button" to="/register">Register</NavLink>
+                            </div>
+                        </div>
                     <form onSubmit={this.onSubmit} className="add-form" autoComplete="off">
                         <div className="simple-input">
                             <input
@@ -125,6 +134,7 @@ class Register extends React.Component {
 
                         <button type="submit" className="btn">Sign Up</button>
                     </form>
+                    </div>
                 </div>
             </div>
         );

@@ -29,15 +29,20 @@ const signToken = userId => {
         iss: secretKey,
         sub:userId
     }, secretKey, {
-        expiresIn: "3600000"
+        expiresIn: "36000000000"
     });
 }
 
 
 
+
+router.get('/',(req,res)=>{
+    User.find().then(users=> res.json(users));
+})
+
 router.get('/info',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const {username,isAdmin} = req.user;
-    res.json({username,isAdmin});
+    const {_id,username,isAdmin} = req.user;
+    res.json({_id,username,isAdmin});
 })
 
 router.post('/login',LogValidationMiddleware,passport.authenticate('local',{session : false}),(req,res)=>{
@@ -46,7 +51,7 @@ router.post('/login',LogValidationMiddleware,passport.authenticate('local',{sess
        const {_id,username,isAdmin} = req.user;
        const token = signToken(_id);
        res.cookie('access_token',token,{httpOnly: true, sameSite:true}); 
-       res.json({username,isAdmin});
+       res.json({_id,username,isAdmin});
     }
 });
 
@@ -63,11 +68,13 @@ router.post("/register",RegValidationMiddleware,(req, res) => {
                         mail: req.body.mail,
                         password: hash
                     });
+
                     newUser.save()
                         .then(createdUser => {
+                            console.log(createdUser)
                             const token = signToken(createdUser._id);
                             res.cookie('access_token',token,{httpOnly: true, sameSite:true}); 
-                            res.status(200).json({username:createdUser.username,isAdmin:0});
+                            res.json({_id:createdUser._id,username:createdUser.username,isAdmin:0});
                         })
                         .catch(err => console.log(err));
                 });

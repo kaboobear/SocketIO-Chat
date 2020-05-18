@@ -11,7 +11,7 @@ const cookieExtractor = req => {
 }
 
 passport.use(new LocalStrategy((username,password,done)=>{
-    User.findOne({$or:[{'username':username},{'mail':username}]},(err,user)=>{
+    User.findOne({username},(err,user)=>{
         if(err) return done(err);
         if(!user) return done(null,{errors:{mail: "User not found"},error:true});
         user.comparePassword(password,done); 

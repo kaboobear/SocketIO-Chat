@@ -16,15 +16,23 @@ const UserSchema = new Schema({
         type:String,
         required:true
     },
+    isOnline:{
+        type:Boolean,
+        default:false
+    },
     isAdmin:{
         type:Number,
         required:true,
         default:0
+    },
+    lastOnlineDate:{
+        type:Date,
+        default:Date.now
     }
 },{timestamps:true});
 
 UserSchema.methods.comparePassword = function(password,cb){
-    bcrypt.compare("111111",this.password,(err,isMatch)=>{
+    bcrypt.compare(password,this.password,(err,isMatch)=>{
         if(err)return cb(err);
         else{
             if(!isMatch) return cb(null,isMatch);
