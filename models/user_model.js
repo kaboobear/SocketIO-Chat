@@ -1,49 +1,50 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
-const UserSchema = new Schema({
-    username:{
-        type:String,
-        required:true
+const UserSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
     },
-    mail:{
-        type:String,
-        required:true,
-        unique:true
+    mail: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+      type: String,
+      required: true,
     },
-    isOnline:{
-        type:Boolean,
-        default:false
+    isOnline: {
+      type: Boolean,
+      default: false,
     },
-    isAdmin:{
-        type:Number,
-        required:true,
-        default:0
+    isAdmin: {
+      type: Number,
+      required: true,
+      default: 0,
     },
-    lastOnlineDate:{
-        type:Date,
-        default:Date.now
+    lastOnlineDate: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { timestamps: true },
+);
+
+UserSchema.methods.comparePassword = function (password, cb) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+    if (err) return cb(err);
+    else {
+      if (!isMatch) return cb(null, isMatch);
+      return cb(null, this);
     }
-},{timestamps:true});
+  });
+};
 
-UserSchema.methods.comparePassword = function(password,cb){
-    bcrypt.compare(password,this.password,(err,isMatch)=>{
-        if(err)return cb(err);
-        else{
-            if(!isMatch) return cb(null,isMatch);
-            return cb(null,this);
-        }
-    })
-}
-
-module.exports = mongoose.model("User",UserSchema);
-
-
+module.exports = mongoose.model('User', UserSchema);
 
 // UserSchema.pre('save',function(next){
 //     if(!this.isModified('password')) return next();
